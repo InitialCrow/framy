@@ -24,9 +24,7 @@ class Db{
 	public function select($column, $table, $cond=""){
 		$column = strip_tags($column);
 		$table = strip_tags($table);
-		var_dump($cond);
 		if (preg_match('/[£$*()}{#~?¬]/', $cond)){
-			var_dump('ici');
 			return false;
 		}
 
