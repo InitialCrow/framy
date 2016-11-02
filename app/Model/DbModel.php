@@ -50,9 +50,6 @@ class Db{
 		$table = strip_tags($table);
 		$column = preg_replace('/\s+/', '', strip_tags($column));
 		$bind = explode(',', $column);
-		
-
-
 		if ( $this->selectDriver === 'PDO'){
 			$bindy ="";
 			for($i=0; $i<count($bind); $i++){
@@ -76,7 +73,6 @@ class Db{
 		$column = strip_tags($column);
 		$table = strip_tags($table);
 		$column = explode(',', $column);
-		;
 		$bindy="";
 		if (preg_match('/[£$*()}{#~?¬]/', $cond)){
 			return false;
@@ -94,7 +90,6 @@ class Db{
 				$bindy .= $column[$i]."='".$value[$i]."', ";
 			}
 			$query ="UPDATE  $table SET $bindy $cond ";
-			var_dump($query);
 			$this->driver->query($query);
 			return;
 		}
