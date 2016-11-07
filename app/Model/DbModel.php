@@ -62,7 +62,7 @@ class Db{
 			$query ="INSERT INTO $table ($column) VALUES ($bindy) $cond";
 			$stmt = $this->driver->prepare($query);
 			for($i=0; $i<count($bind); $i++){
-				$values[$i] = addslashes(trim($values[$i]));
+				$values[$i] = trim($values[$i]);
 				$stmt->bindParam(':'.$bind[$i], $values[$i]);
 			}
 			$stmt->execute();
